@@ -32,6 +32,9 @@ const config = {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        textGradient: {
+        'custom-gradient': 'linear-gradient(rgb(20, 78, 227), rgb(235, 86, 142), rgb(163, 83, 170), rgb(20, 78, 227))',
+      },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
