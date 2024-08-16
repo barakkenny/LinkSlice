@@ -25,6 +25,7 @@ import { FormEvent, useState } from "react";
 
 
 
+
 export default function Home() {
   const [longUrl, setLongUrl] = useState<string>('');
 
@@ -50,7 +51,7 @@ export default function Home() {
           <h3>url-trim</h3>
         </Link>
         {!user ? (
-          <Button onClick={() => router.push("/auth/login")}> Login</Button>
+          <Button onClick={() => router.push("/auth")}> Login</Button>
         ) : (
           <DropdownMenu>
             <DropdownMenuTrigger className="w-10 rounded-full overflow-hidden">
