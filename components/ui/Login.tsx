@@ -73,10 +73,10 @@ const Login = () => {
 
 
 // Assuming `login` and `formData` have types defined elsewhere
-const { data, error, loading, fn } = useFetch<FormData>( login, formData);
+const { data, error, loading, fn: fnLogin } = useFetch(login, formData);
 
 useEffect(() => {
-    // console.log(data);
+    console.log(data);
     if (error === null && data) {
         // Handle successful data fetch
     }
@@ -91,6 +91,7 @@ useEffect(() => {
     });
 
     await schema.validate(formData, { abortEarly: false });
+    await fnLogin()
   } catch (e: any) {
     const newErrors: ValidationError = {};
     e?.inner?.forEach((err: Yup.ValidationError) => {
