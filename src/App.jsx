@@ -1,15 +1,16 @@
-import LandingPage from './Pages/LandingPage'
-import {RouterProvider, createBrowserRouter} from "react-router-dom";
+import React, { Suspense } from 'react';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import UrlProvider from './context';
-
 import AppLayout from "./layouts/app-layout";
 import RequireAuth from './components/ui/require-auth';
+import './App.css';
 
-import RedirectLink from './Pages/Redirect-link';
-import Dashboard from './Pages/Dashboard';
-import Link from './Pages/Link';
-import Auth from "./Pages/auth";
-import './App.css'
+// Lazy load the components
+const LandingPage = React.lazy(() => import('./Pages/LandingPage'));
+const RedirectLink = React.lazy(() => import('./Pages/Redirect-link'));
+const Dashboard = React.lazy(() => import('./Pages/Dashboard'));
+const Link = React.lazy(() => import('./Pages/Link'));
+const Auth = React.lazy(() => import('./Pages/auth'));
 
 const router = createBrowserRouter([
   {
@@ -17,17 +18,27 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <LandingPage />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <LandingPage />
+          </Suspense>
+        ),
       },
       {
         path: "/auth",
-        element: <Auth />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Auth />
+          </Suspense>
+        ),
       },
       {
         path: "/dashboard",
         element: (
           <RequireAuth>
-            <Dashboard />
+            <Suspense fallback={<div>Loading...</div>}>
+              <Dashboard />
+            </Suspense>
           </RequireAuth>
         ),
       },
@@ -35,29 +46,30 @@ const router = createBrowserRouter([
         path: "/link/:id",
         element: (
           <RequireAuth>
-            <Link />
+            <Suspense fallback={<div>Loading...</div>}>
+              <Link />
+            </Suspense>
           </RequireAuth>
         ),
       },
       {
         path: "/:id",
-        element: <RedirectLink />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <RedirectLink />
+          </Suspense>
+        ),
       },
     ],
   },
 ]);
 
-
 function App() {
-
-
   return (
-    <>
     <UrlProvider>
       <RouterProvider router={router} />
     </UrlProvider>
-    </>
-  )
+  );
 }
 
-export default App
+export default App;
