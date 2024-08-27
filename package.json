@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "name": "link-trimmer",
     "private": true,
@@ -47,3 +48,5 @@
         "vite": "^5.4.2"
     }
 }
+=======
+>>>>>>> parent of 93fd2ed (Resolved conflicting merges)

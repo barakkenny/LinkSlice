@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Suspense } from 'react';
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import UrlProvider from './context';
@@ -70,6 +71,17 @@ function App() {
       <RouterProvider router={router} />
     </UrlProvider>
   );
+=======
+import './App.css'
+
+function App() {
+
+  return (
+    <>
+      <h1>hello world</h1>
+    </>
+  )
+>>>>>>> parent of 93fd2ed (Resolved conflicting merges)
 }
 
 export default App;
