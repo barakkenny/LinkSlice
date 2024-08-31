@@ -10,7 +10,7 @@ const LandingPage = React.lazy(() => import('./Pages/LandingPage'));
 const RedirectLink = React.lazy(() => import('./Pages/Redirect-link'));
 const Dashboard = React.lazy(() => import('./Pages/Dashboard'));
 const Link = React.lazy(() => import('./Pages/Link'));
-const Auth = React.lazy(() => import('./Pages/auth'));
+const Auth = React.lazy(() => import('./Pages/Auth'));
 
 const router = createBrowserRouter([
   {
