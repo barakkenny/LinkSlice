@@ -1,4 +1,3 @@
-31 @@
 # LinkSlice
 
 LinkSlice is a URL shortener application that includes features for login, 
